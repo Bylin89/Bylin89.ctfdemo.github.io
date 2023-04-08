@@ -8,13 +8,11 @@ function check(){
 	var password = document.getElementById("password").value;
 	if(username=="123" && password=="123"){
 		alert("Congratulations!");
-		window.location.href="flag.html";
 		return true;
 	}
 	else{
 		alert("Wrong password.");
-		window.location.href="index.html";
 		return false;
 	}
-	
+	window.location.href="index.html";
 }
