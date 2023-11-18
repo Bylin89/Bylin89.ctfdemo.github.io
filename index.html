@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>Tom's notebook</title>
+	<style>
+		body{
+			font-family: Arial, sans-serif;
+			margin-left: 50px;
+			margin-right: 50px;
+		}
+		h1{
+			margin-top: 20px;
+		}
+		img{
+			display: block;
+			margin: auto;
+			width: 800px;
+			align: center;
+		}
+		p{
+			font-size: 20px;
+			word-wrap: break-word;
+		}
+		.notebook{
+			background-color: #f5f5f5;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+			max-width: 600px;
+			margin: 0 auto;
+			font-style: italic;
+		}
+		.notebook p{
+			font-size: 18px;
+			line-height: 1.5;
+			margin-bottom: 20px;
+			text-align: justify;
+			text-justify: inter-word;
+		}
+		form{
+			width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			border-radius: 5px;
+		}
+		.line{
+			position: absolute;
+			left: 350px;
+		}
+		#line{
+			width: 200px;
+			border-radius: 5px;
+			border-color: #000000;
+		}
+		.name{
+			position: absolute;
+			right: 350px;
+		}
+		#name{
+			width: 200px;
+			margin-top: 50px;
+			border-radius: 5px;
+			border-color: #000000;
+		}
+		label{
+			font-size: 30px;
+			font-weight: 300px;
+			padding: 5px;
+			color:#000000;
+		}
+		input[type="text"]{
+		    text-align: center;
+			height: 30px;
+			padding: 5px;
+			font-size: 30px;
+			color: #000000;	
+		}
+		input[type="submit"] {
+			position: absolute;
+			right: 350px;
+			height: 40px;
+			width: 120px;
+			background-color: #000000;
+			color: #FFFFFF;
+			font-weight: 200px;
+			font-size: 20px;
+			padding: 10px;
+			margin-top: 120px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.error {
+			color: red;
+			font-size: 0.8em;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Tom's Notebook</h1>
+	<p>Tom keeps important documents in his notebook folder. To open the folder, he has to answer some verification questions. Unfortunatly, he forgot the answers. He found a notepad:</p>
+	<div class="notebook">
+	<p>U2FsdGVkX1+LYS3t5XnfhkCmzMvoo+qhxsu2iIxWQPk=</p>
+	<p>this_is_the_key</p>
+	</div>
+	<p>Tom is known to be a fan of a television series. Please help Tom log in to the computer to get the CTF flag.</p>
+	<form method="post" id="submit-form" action="submit.php">
+		<div class="line">
+			<label for="line">I am</label>
+			<input type="text" id="line" name="line" required><br><br>
+		</div>
+		<div class="name">
+			<label for="name">——</label>
+			<input type="text" id="name" name="name" required><br><br>
+		</div>
+		<input type="submit" value="Log in">
+	</form>
+	<script>
+		const form = document.getElementById('submit-form');
+		form.addEventListener('submit', function(event) {
+			const username = document.getElementById('line');
+			const password = document.getElementById('name');
+			let error = false;
+
+			if (!line.value) {
+				line.classList.add('error');
+				error = true;
+			} else {
+				line.classList.remove('error');
+			}
+
+			if (!name.value) {
+				name.classList.add('error');
+				error = true;
+			} else {
+				name.classList.remove('error');
+			}
+
+			if (error) {
+				event.preventDefault();
+			}
+		});
+	</script>
+</body>
+</html>
